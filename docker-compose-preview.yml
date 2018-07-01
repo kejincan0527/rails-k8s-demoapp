@@ -22,7 +22,7 @@ services:
     command: ./bin/start-sidekiq
 
   mysql:
-    image: mysql:5.7.21
+    image: mysql:5.7.22
     env_file:
       - .dockerenv/mysql
 # uncomment to persist data
@@ -30,7 +30,7 @@ services:
 #      - ./tmp/mysql:/var/lib/mysql
 
   redis:
-    image: redis:4.0.9
+    image: redis:4.0.10
 # uncomment to persist data
 #    volumes:
 #      - ./tmp/redis:/data

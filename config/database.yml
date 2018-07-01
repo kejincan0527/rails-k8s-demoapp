@@ -3,7 +3,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch("MYSQL_USER") { "root" } %>
-  password: <%= ENV.fetch("MYSQL_PASSWORD") { "" } %>
+  password: <%= ENV.fetch("MYSQL_PASSWORD") { "secret" } %>
   host: <%= ENV.fetch("MYSQL_HOST") { "0.0.0.0" } %>
 
 development:

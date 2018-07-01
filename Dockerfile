@@ -30,7 +30,7 @@ RUN bundle exec rake assets:precompile
 
 ### image for execution
 FROM ruby:2.5.1-alpine
-LABEL maintainer 'Kawahara Taisuke <kwhrtsk@gmail.com>'
+LABEL maintainer 'Wells Muker <wellsmuke@gmail.com>'
 
 ARG RAILS_ROOT=/app
 ARG PACKAGES="tzdata yaml mariadb-client-libs bash"
