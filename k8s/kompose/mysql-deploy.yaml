@@ -34,7 +34,7 @@ spec:
             configMapKeyRef:
               key: MYSQL_USER
               name: mysql-dockerenv-mysql
-        image: mysql:5.7.21
+        image: mysql:5.7.22
         name: mysql
         resources: {}
       restartPolicy: Always

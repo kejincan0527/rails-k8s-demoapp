@@ -1,7 +1,7 @@
 mysql:
   image:
     repository: mysql
-    tag: 5.7.21
+    tag: 5.7.22
   storage:
     size: 8Gi
     className: standard
@@ -9,7 +9,7 @@ mysql:
 redis:
   image:
     repository: redis
-    tag: 4.0.9
+    tag: 4.0.10
   storage:
     size: 8Gi
     className: standard

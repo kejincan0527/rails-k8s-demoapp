@@ -27,7 +27,7 @@ spec:
             claimName: demoapp-redis
       containers:
         - name: redis
-          image: redis:4.0.9
+          image: redis:4.0.10
           livenessProbe:
             tcpSocket:
               port: 6379

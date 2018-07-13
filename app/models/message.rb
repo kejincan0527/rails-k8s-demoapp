@@ -2,10 +2,11 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
 #  body       :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  likes      :integer
 #
 
 class Message < ApplicationRecord

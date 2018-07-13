@@ -22,7 +22,7 @@ spec:
         - redis-server
         - --appendonly
         - "yes"
-        image: redis:4.0.9
+        image: redis:4.0.10
         name: redis
         resources: {}
       restartPolicy: Always

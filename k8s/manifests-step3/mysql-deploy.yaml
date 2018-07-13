@@ -12,8 +12,8 @@ spec:
     matchLabels:
       app: demoapp
       component: mysql
-  strategy:
-    type: Recreate
+  strategy:              # 更新時の動作を指定
+    type: Recreate       # 古いPodを停止してから新しいPodを起動
   template:
     metadata:
       labels:
@@ -21,13 +21,13 @@ spec:
         component: mysql
     spec:
       restartPolicy: Always
-      volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: demoapp-mysql
-      initContainers:
-        - name: "remove-lost-found"
-          image: "busybox:1.25.0"
+      volumes:                              #
+        - name: data                        # .volumeMountsの.nameで指定
+          persistentVolumeClaim:            #
+            claimName: demoapp-mysql        # PVCオブジェクトの.metadata.nameを指定
+      initContainers:                       # 前処理用のコンテナ
+        - name: "remove-lost-found"         # データディレクトリの"lost+found"ディレクトリを削除
+          image: "busybox:1.28.4"
           command: 
             - rm
             - -fr
@@ -37,16 +37,16 @@ spec:
               mountPath: /var/lib/mysql
       containers:
         - name: mysql
-          image: mysql:5.7.21
+          image: mysql:5.7.22
           livenessProbe:
             tcpSocket:
               port: 3306
           readinessProbe:
             tcpSocket:
               port: 3306
-          volumeMounts:
-            - name: data
-              mountPath: /var/lib/mysql
+          volumeMounts:                   #
+            - name: data                  # .volumesの.nameを指定
+              mountPath: /var/lib/mysql   # MySQLのデータディレクトリを指定
           envFrom:
             - configMapRef:
                 name: demoapp-mysql-env

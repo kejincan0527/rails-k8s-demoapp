@@ -32,7 +32,7 @@ spec:
             claimName: {{ template "demoapp.mysql.name" . }}
       initContainers:
         - name: "remove-lost-found"
-          image: "busybox:1.25.0"
+          image: "busybox:1.28.4"
           command: 
             - rm
             - -fr
